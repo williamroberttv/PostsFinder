@@ -10,4 +10,15 @@ module.exports = {
 
     return response.json(getUsers);
   },
+  async show(request, response) {
+    const getFilteredByCompanyName = await axios.get(usersApi).then((res) => {
+      const users = res.data;
+      const filteredByCompanyName = users.filter(
+        (user) => user.company.name == request.params.company_name
+      );
+      return filteredByCompanyName;
+    });
+
+    return response.json(getFilteredByCompanyName);
+  },
 };

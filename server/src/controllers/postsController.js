@@ -11,15 +11,15 @@ module.exports = {
     return response.json(getPosts);
   },
 
-  async filtered(request, response) {
-    const getFilteredPosts = await axios.get(postsApi).then((res) => {
+  async show(request, response) {
+    const getFilteredById = await axios.get(postsApi).then((res) => {
       const posts = res.data;
-      const filteredPosts = posts.filter(
+      const filteredById = posts.filter(
         (post) => post.userId == request.params.id
       );
-      return filteredPosts;
+      return filteredById;
     });
 
-    return response.json(getFilteredPosts);
+    return response.json(getFilteredById);
   },
 };
