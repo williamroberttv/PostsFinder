@@ -29,7 +29,7 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias
 ## :heavy_check_mark: Resultado:
 
 <h1 align="center">
-    <img alt="Web" src=".screenshots/gitfi.gif" width="600px">
+    <img alt="Web" src="./screenshots/gitfi.gif" width="600px">
 </h1>
 
 <a id="como-usar"></a>
