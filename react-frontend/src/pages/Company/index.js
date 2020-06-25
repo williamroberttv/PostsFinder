@@ -23,11 +23,11 @@ function Company() {
         <h1>Vamos começar</h1>
         <p>Selecione a empresa para listagem de usuários</p>
       </div>
-      <div className="posts">
+      <div className="company-section">
         {users.map((user) => (
           <section
             onClick={() => getCompanyName(user.company.name)}
-            className="post-section"
+            className="company"
             key={user.id}
           >
             <img src={company} alt="Company" />

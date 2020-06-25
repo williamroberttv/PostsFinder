@@ -12,11 +12,10 @@ function Posts() {
   const [postsData, setPostsData] = useState([]);
 
   useEffect(() => {
-    if (userId) {
-      api.get(`posts/${userId}`).then((res) => setPostsData(res.data));
-    } else {
+    if (!userId) {
       history.push("/users");
     }
+    api.get(`posts/${userId}`).then((res) => setPostsData(res.data));
   });
 
   function handleBackToUser() {
@@ -31,27 +30,29 @@ function Posts() {
   return (
     <div id="posts-page">
       <div className="posts-header">
-        <button onClick={handleBackToUser}>
+        <button className="header-back" onClick={handleBackToUser}>
           <FiArrowLeft />
           <strong>Informações do usuário</strong>
         </button>
-        <button onClick={handleNewSearch}>
+        <button className="header-new-search" onClick={handleNewSearch}>
           <FiSearch />
           <strong>Realizar nova pesquisa</strong>
         </button>
       </div>
-      {postsData.map((post) => (
-        <div className="posts-section" key={post.id}>
-          <div className="username-section">
-            <img src={userImg} alt="user" />
-            <p>{username}</p>
+      <div className="posts">
+        {postsData.map((post) => (
+          <div className="posts-section" key={post.id}>
+            <div className="username-section">
+              <img src={userImg} alt="user" />
+              <p>{username}</p>
+            </div>
+            <div className="post">
+              <h1>{post.title}</h1>
+              <p>{post.body}</p>
+            </div>
           </div>
-          <div className="post">
-            <h1>{post.title}</h1>
-            <p>{post.body}</p>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }

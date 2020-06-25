@@ -12,9 +12,7 @@ function Users() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    if (companyName) {
-      return;
-    } else {
+    if (!companyName) {
       history.push("/company");
     }
   });

@@ -1,7 +1,7 @@
 #page-home {
   height: 100vh;
 
-  background: url("../../assets/home-background.svg") no-repeat 600px bottom;
+  background: url("../../assets/home-background.svg") no-repeat 580px bottom;
 }
 
 #page-home .content {
@@ -81,7 +81,17 @@
   opacity: 0.9;
 }
 
+@media (width: 1024px) {
+  #page-home {
+    background: url("../../assets/home-background.svg") no-repeat 450px bottom;
+    background-size: 70%;
+  }
+}
+
 @media (max-width: 900px) {
+  #page-home {
+    background: none;
+  }
   #page-home .content {
     align-items: center;
     text-align: center;

@@ -27,13 +27,10 @@ function getPosts() {
   return getAllPosts;
 }
 
-function getFilteredById(id) {
-  const filteredResults = axios.get(postsApi).then((res) => {
-    const posts = res.data;
-    const filteredById = posts.filter((post) => post.userId == id);
-    return filteredById;
-  });
-  return filteredResults;
+async function getFilteredById(id) {
+  const posts = await getPosts();
+  const filteredById = posts.filter((post) => post.userId == id);
+  return filteredById;
 }
 
 module.exports = {
