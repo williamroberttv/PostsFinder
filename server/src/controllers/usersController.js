@@ -1,24 +1,13 @@
-const axios = require("axios");
-const usersApi = "http://jsonplaceholder.typicode.com/users";
+const { getUsers, getFilteredByCompanyName } = require("../services/api");
 
 module.exports = {
   async index(request, response) {
-    const getUsers = await axios.get(usersApi).then((response) => {
-      const users = response.data;
-      return users;
-    });
-
-    return response.json(getUsers);
+    const users = await getUsers();
+    return response.json(users);
   },
   async show(request, response) {
-    const getFilteredByCompanyName = await axios.get(usersApi).then((res) => {
-      const users = res.data;
-      const filteredByCompanyName = users.filter(
-        (user) => user.company.name == request.params.company_name
-      );
-      return filteredByCompanyName;
-    });
-
-    return response.json(getFilteredByCompanyName);
+    const companyName = request.params.company_name;
+    const userFiltered = await getFilteredByCompanyName(companyName);
+    return response.json(userFiltered);
   },
 };
