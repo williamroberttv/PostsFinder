@@ -42,7 +42,7 @@ function Posts() {
       <div className="posts">
         {postsData.map((post) => (
           <div className="posts-section" key={post.id}>
-            <div className="username-section">
+            <div className="user-title">
               <img src={userImg} alt="user" />
               <p>{username}</p>
             </div>

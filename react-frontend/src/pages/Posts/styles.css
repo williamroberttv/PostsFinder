@@ -56,15 +56,16 @@
 .posts-header .header-back:hover {
   color: #6c63ff;
 }
-.username-section {
+.user-title {
   max-width: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   max-height: 100px;
+  margin: 20px auto;
 }
-.username-section img {
+.user-title img {
   width: 20px;
   height: 20px;
   margin-bottom: 10px;
@@ -99,7 +100,7 @@
     grid-template-columns: 1fr 1fr;
   }
 }
-@media (max-width: 425px) {
+@media (max-width: 660px) {
   .posts-header {
     display: flex;
     flex-direction: column;
@@ -107,9 +108,7 @@
   .posts-header .header-new-search {
     margin-top: 50px;
   }
-  .username-section {
-    margin: auto;
-  }
+
   .posts {
     grid-template-columns: 1fr;
   }
